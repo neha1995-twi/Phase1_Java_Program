@@ -4,7 +4,10 @@ class Table {
 	synchronized void printTable(int n) {
 
 		for (int i = 1; i <= 10; i++) {
+
 			try {
+				this.wait();
+
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -44,10 +47,10 @@ public class SynchronizationExample {
 
 	public static void main(String[] args) {
 		Table objT = new Table();
-		
+
 		new Thread(new NinethRunnable(objT)).start();
 		new Thread(new TenthRunnable(objT)).start();
-		
+
 	}
 
 }

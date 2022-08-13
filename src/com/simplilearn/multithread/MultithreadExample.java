@@ -6,11 +6,14 @@ class MultiRunnable implements Runnable {
 		// Place where thread will have its own execution enviornments
 		
 		for(int i=0; i<10; i++) {
+			
+			// You want current thread to wait for 1000 ms
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
 			System.out.print(i);
 		}
 	}
@@ -18,12 +21,12 @@ class MultiRunnable implements Runnable {
 
 public class MultithreadExample {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException  {
 		
 		// 1. Create object of Runnable class
 		MultiRunnable runnableObj = new MultiRunnable();
 		
-		runnableObj.run();
+		
 		
 		// 2. Can create Thread Object and pass runnable
 		Thread t1 = new Thread(runnableObj);
